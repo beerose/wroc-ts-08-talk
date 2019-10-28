@@ -15,7 +15,7 @@
   "window.title": "${dirty} Persistent data structures thanks to recursive type aliases${separator}${activeEditorShort}",
   "window.menuBarVisibility": "hidden",
   "workbench.statusBar.visible": false,
-  "workbench.activityBar.visible": false,
+  // "workbench.activityBar.visible": false,
   "typescript.referencesCodeLens.enabled": false,
   "typescript.implementationsCodeLens.enabled": false,
 
