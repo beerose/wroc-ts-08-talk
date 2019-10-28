@@ -13,7 +13,7 @@ with a kickass **15** minute presentation, entirely in VSCode.
 
 It's well known that mutability is evil and often troublesome,
 but you can stop shallow copying arrays (or god-forbid deep copying)
-every time you want to change them.
+every time you want to change them. Let me show you how.
 
 Immutable data structures are the tool for the job when immutability is required. \
 Time to add them to our toolset.
@@ -63,3 +63,7 @@ Run TypeScript slides with
 
 Minimize distractions and maximize screen space 
 - `Cmd + B` → _(built-in) View: Toggle Side Bar Visibility_
+
+Use regions to hide imports and code pasted from previous slides
+
+![](assets/2019-10-28-19-43-38.png)

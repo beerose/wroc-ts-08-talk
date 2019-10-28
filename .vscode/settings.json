@@ -14,7 +14,7 @@
   // minimize distractions
   "window.title": "${dirty} Persistent data structures thanks to recursive type aliases${separator}${activeEditorShort}",
   "window.menuBarVisibility": "hidden",
-  "workbench.statusBar.visible": false,
+  "workbench.statusBar.visible": true,
   // "workbench.activityBar.visible": false,
   "typescript.referencesCodeLens.enabled": false,
   "typescript.implementationsCodeLens.enabled": false,
@@ -28,5 +28,6 @@
   },
 
   // need this one for 04.ts and 05.ts
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typelens.showReferencesForClasses": false
 }
