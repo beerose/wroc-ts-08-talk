@@ -1,0 +1,7 @@
+{
+  "x": {
+    "scope": "typescript, typescriptreact",
+    "prefix": "some",
+    "body": ["some text that will be displayed after typing `some`;\n\n"]
+  }
+}
