@@ -5,7 +5,4 @@
 
 export type ConsList<T> = null | [T, ConsCell<T>];
 
-interface ConsCell<T> {
-  readonly [0]: T;
-  readonly [1]: ConsList<T>;
-}
+interface ConsCell<T> extends Array<ConsList<T>> {}

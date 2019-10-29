@@ -97,4 +97,4 @@ console.log((q = enqueue(300, enqueue(200, enqueue(100, q)))));
 const [res1, q1] = dequeue(q);
 console.log(res1);
 console.log(q1);
-console.log(dequeue(dequeue(dequeue(q1)[1])[1]));
+console.log(dequeue(dequeue(dequeue(q1)[1])[1])[1]);

@@ -37,6 +37,7 @@ function map<A, B>(xs: ConsList<A>, f: (a: A) => B): ConsList<B> {
   const [head, tail] = xs;
   return cons(f(head), map(tail, f));
 }
+// #endregion
 
 // #region demo fun
 
@@ -44,7 +45,7 @@ type Location = { pathname: string; search: string };
 
 const history = {
   listen(f: (_: Location) => void) {
-    const pathnames = ["/login", "/settings", "/settings", "/docs", "/docs", "/settings"];
+    const pathnames = ["/login", "/settings", "/home", "/docs", "/docs", "/admin"];
     const interval = setInterval(() => {
       const pathname = pathnames.shift();
       if (pathname) {
@@ -58,8 +59,6 @@ const history = {
     }, 20);
   },
 };
-
-// #endregion
 
 // #endregion
 
