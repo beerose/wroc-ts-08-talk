@@ -2,23 +2,26 @@
 
 import { ConsList } from "./04";
 
-export const cons = <T>(h: T, t: ConsList<T>): ConsList<T> => [h, t];
+const cons = <T>(h: T, t: ConsList<T>): ConsList<T> => [
+  h,
+  t,
+];
 
-export const head = <T>(xs: ConsList<T>): T => {
+const head = <T>(xs: ConsList<T>): T => {
   if (!xs) {
     throw new Error("can't take head of empty ConsList");
   }
   return xs[0];
 };
 
-export const tail = <T>(xs: ConsList<T>): ConsList<T> => {
+const tail = <T>(xs: ConsList<T>): ConsList<T> => {
   if (!xs) {
     throw new Error("can't take tail of empty ConsList");
   }
   return xs[1];
 };
 
-export const of = <T>(...xs: T[]): ConsList<T> => {
+const of = <T>(...xs: T[]): ConsList<T> => {
   let res: ConsList<T> = null;
   for (let i = xs.length - 1; i >= 0; --i) {
     res = cons(xs[i], res);
@@ -31,7 +34,10 @@ console.log(of("hello"));
 const oneTwoThree = of(1, 2, 3);
 console.log(oneTwoThree);
 
-export const map = <A, B>(xs: ConsList<A>, f: (a: A) => B): ConsList<B> => {
+const map = <A, B>(
+  xs: ConsList<A>,
+  f: (a: A) => B,
+): ConsList<B> => {
   if (xs === null) {
     return null;
   }
