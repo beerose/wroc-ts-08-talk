@@ -88,7 +88,7 @@ const list = fromArray(array);
  * _actual benchmarks_
  */
 
-// Array.prototype.unshift vs Array.prototype.push vs cons
+console.log("Array.prototype.unshift vs Array.prototype.push vs cons \n");
 
 console.log(benchmark(() => array.unshift(50)));
 
@@ -96,13 +96,13 @@ console.log(benchmark(() => array.push(50)));
 
 console.log(benchmark(() => cons(50, list)));
 
-// array spread vs cons
+console.log("\n \narray spread vs cons \n");
 
 console.log(benchmark(() => [50, ...array]));
 
 console.log(benchmark(() => cons(50, list)));
 
-// Array.prototype.map vs map
+console.log("\n\nArray.prototype.map vs map\n");
 
 console.log(benchmark(() => array.map(x => x * 2)));
 

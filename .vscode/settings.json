@@ -2,7 +2,7 @@
   // You can use comments in this file 😲
 
   // similar to GitHub theme
-  "workbench.colorTheme": "Min Light",
+  "workbench.colorTheme": "Solarized Light",
 
   // make it big
   // "editor.fontSize": 24, // <
@@ -14,8 +14,8 @@
   // minimize distractions
   "window.title": "${dirty} Persistent data structures thanks to recursive type aliases${separator}${activeEditorShort}",
   "window.menuBarVisibility": "hidden",
-  "workbench.statusBar.visible": true,
-  // "workbench.activityBar.visible": false,
+  "workbench.statusBar.visible": false,
+  "workbench.activityBar.visible": true,
   "typescript.referencesCodeLens.enabled": false,
   "typescript.implementationsCodeLens.enabled": false,
 

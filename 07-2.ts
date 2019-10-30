@@ -60,41 +60,43 @@ namespace ConsList {
  * **first-in-first-out queue**
  */
 
-import { some, none, Option } from "fp-ts/lib/Option";
-
 type Queue<T> = {
   front: ConsList<T>;
-  end: ConsList<T>;
+  back: ConsList<T>;
 };
 
-const empty = <T>(): Queue<T> => ({ front: null, end: null });
+const empty = <T>(): Queue<T> => ({ front: null, back: null });
 
-const isEmpty = (queue: Queue<unknown>) => (queue.front || queue.end) === null;
+const isEmpty = (queue: Queue<unknown>) => (queue.front || queue.back) === null;
 
-const enqueue = <T>(x: T, { front, end }: Queue<T>) => ({
-  front: ConsList.cons(x, front),
-  end,
+const enqueue = <T>(x: T, { front, back }: Queue<T>) => ({
+  back: ConsList.cons(x, back),
+  front,
 });
 
-const dequeue = <T>(queue: Queue<T>): [Option<T>, Queue<T>] => {
-  const { front, end } = queue;
-  if (end) {
-    const [value, newEnd] = end;
-    return [some(value), { front, end: newEnd }];
-  }
-
+const dequeue = <T>(queue: Queue<T>): [T | null, Queue<T>] => {
+  const { front, back } = queue;
   if (front) {
-    return dequeue({ front: null, end: ConsList.reverse(front) });
+    const [value, newFront] = front;
+    return [value, { back, front: newFront }];
   }
 
-  return [none, queue];
+  if (back) {
+    return dequeue({ back: null, front: ConsList.reverse(back) });
+  }
+
+  return [null, queue];
 };
 
 let q = empty<number>();
 
-console.log((q = enqueue(300, enqueue(200, enqueue(100, q)))));
+console.log(JSON.stringify((q = enqueue(300, enqueue(200, enqueue(100, q))))));
 
 const [res1, q1] = dequeue(q);
 console.log(res1);
 console.log(q1);
-console.log(dequeue(dequeue(dequeue(q1)[1])[1])[1]);
+
+const q2 = enqueue(400, q1);
+console.log(q2);
+console.log(dequeue(q2));
+console.log(dequeue(dequeue(dequeue(q2)[1])[1]));

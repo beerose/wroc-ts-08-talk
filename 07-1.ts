@@ -45,7 +45,7 @@ type Location = { pathname: string; search: string };
 
 const history = {
   listen(f: (_: Location) => void) {
-    const pathnames = ["/login", "/settings", "/home", "/docs", "/docs", "/admin"];
+    const pathnames = ["/login", "/settings", "/home", "/docs", "/docs", "/docs", "/docs", "/admin"];
     const interval = setInterval(() => {
       const pathname = pathnames.shift();
       if (pathname) {
