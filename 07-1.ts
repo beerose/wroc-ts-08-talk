@@ -70,13 +70,13 @@ const history = {
 
 const push = cons;
 const pop = tail;
-const peek = head;
+const top = head;
 
 let stack: ConsList<Location> = of({ pathname: "/", search: "" });
 
 // our history is write-only, but we can listen for changes
 history.listen(location => {
-  if (peek(stack).pathname !== location.pathname) {
+  if (top(stack).pathname !== location.pathname) {
     stack = push(location, stack);
   }
 });

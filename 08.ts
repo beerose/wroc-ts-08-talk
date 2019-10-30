@@ -30,7 +30,11 @@ function of<T>(...xs: [T, ...T[]]): ConsList<T> {
   return res;
 }
 
-function reduce<T, R = T>(xs: ConsList<T>, reducer: (acc: R, val: T) => R, initialValue: R): R {
+function reduce<T, R = T>(
+  xs: ConsList<T>,
+  reducer: (acc: R, val: T) => R,
+  initialValue: R,
+): R {
   while (xs) {
     const [head, tail] = xs;
     initialValue = reducer(initialValue, head);
@@ -40,11 +44,15 @@ function reduce<T, R = T>(xs: ConsList<T>, reducer: (acc: R, val: T) => R, initi
 }
 
 function reverse<T>(xs: ConsList<T>): ConsList<T> {
-  return reduce(xs, (a, v) => cons(v, a), null as ConsList<T>);
+  return reduce(xs, (a, v) => cons(v, a), null as ConsList<
+    T
+  >);
 }
 
 function fromArray<T>(array: T[]): ConsList<T> {
-  return array.length ? of(...(array as [T, ...T[]])) : null;
+  return array.length
+    ? of(...(array as [T, ...T[]]))
+    : null;
 }
 
 // #endregion
@@ -60,7 +68,10 @@ const benchmark = (f: () => void) => {
 
   let ops = 0;
   let timeElapsed: number;
-  while ((timeElapsed = performance.now() - start) < BENCHMARK_TIME) {
+  while (
+    (timeElapsed = performance.now() - start) <
+    BENCHMARK_TIME
+  ) {
     f();
     ops++;
   }
@@ -77,18 +88,24 @@ const benchmark = (f: () => void) => {
 const REALISTIC_NUMBER_OF_THINGS_IN_PRODUCTION_APP = 10_000;
 
 /**
- * _setup_
+ * setup
  */
 
-const array = new Array(REALISTIC_NUMBER_OF_THINGS_IN_PRODUCTION_APP).fill(0).map(() => Math.random());
+const array = new Array(
+  REALISTIC_NUMBER_OF_THINGS_IN_PRODUCTION_APP,
+)
+  .fill(0)
+  .map(() => Math.random());
 
 const list = fromArray(array);
 
 /**
- * _actual benchmarks_
+ * actual benchmarks
  */
 
-console.log("Array.prototype.unshift vs Array.prototype.push vs cons \n");
+console.log(
+  "(Mutable) Array.prototype.unshift vs Array.prototype.push vs cons \n",
+);
 
 console.log(benchmark(() => array.unshift(50)));
 
@@ -96,7 +113,7 @@ console.log(benchmark(() => array.push(50)));
 
 console.log(benchmark(() => cons(50, list)));
 
-console.log("\n \narray spread vs cons \n");
+console.log("\n \n(Immutable) array spread vs cons \n");
 
 console.log(benchmark(() => [50, ...array]));
 
@@ -107,7 +124,10 @@ console.log("\n\nArray.prototype.map vs map\n");
 console.log(benchmark(() => array.map(x => x * 2)));
 
 // non-recursive version of map from slide 6
-function map<A, B>(xs: ConsList<A>, f: (a: A) => B): ConsList<B> {
+function map<A, B>(
+  xs: ConsList<A>,
+  f: (a: A) => B,
+): ConsList<B> {
   let res: ConsList<B> = null;
   while (xs) {
     const [head, tail] = xs;

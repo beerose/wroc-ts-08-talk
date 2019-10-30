@@ -18,7 +18,7 @@ export const tail = <T>(xs: ConsList<T>): ConsList<T> => {
   return xs[1];
 };
 
-export const of = <T>(...xs: [T, ...T[]]): ConsList<T> => {
+export const of = <T>(...xs: T[]): ConsList<T> => {
   let res: ConsList<T> = null;
   for (let i = xs.length - 1; i >= 0; --i) {
     res = cons(xs[i], res);
