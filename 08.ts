@@ -44,9 +44,11 @@ function reduce<T, R = T>(
 }
 
 function reverse<T>(xs: ConsList<T>): ConsList<T> {
-  return reduce(xs, (a, v) => cons(v, a), null as ConsList<
-    T
-  >);
+  return reduce(
+    xs,
+    (acc, v) => cons(v, acc),
+    null as ConsList<T>,
+  );
 }
 
 function fromArray<T>(array: T[]): ConsList<T> {
