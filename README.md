@@ -34,6 +34,29 @@ TODO: Make "Why" shorter?
   - Benchmarks of Cons List vs Array operations
 
 ---
+
+## Benchmarks
+
+### Mutable operations vs cons
+| Opeation | ops/s |
+| :----------------- | -----------:|
+| array.unshift(50) | 69263.438   |
+| array.push(50)    | 9609332.222 |
+| cons(50, list)    | 8627588.293 |
+
+### Immutable operation vs cons
+| Operation | ops/s |
+| :----------------- | -----------:|
+| [50, ...array]    | 3.085       |
+| cons(50, list)    | 8627588.293 |
+
+### Array.prototype.map vs map
+| Operation | ops/s |
+| :----------------- | -----------:|
+| array.map(x => x * 2) | 0.691   |
+| map(list, x => x * 2) | 39.666  |
+
+---
 _quick reminders_
 
 # Controls
