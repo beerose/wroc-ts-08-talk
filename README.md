@@ -39,7 +39,7 @@ TODO: Make "Why" shorter?
 
 ### Mutable operations vs cons
 
-| Opeation &nbsp&nbsp&nbsp          |       ops/s |
+| Opeation |       ops/s |
 | :-------------------------------- | ----------: |
 | array.unshift(50) &nbsp&nbsp&nbsp |   99953.939 |
 | array.push(50) &nbsp&nbsp&nbsp    |   70675.276 |
@@ -47,7 +47,7 @@ TODO: Make "Why" shorter?
 
 ### Immutable operation vs cons
 
-| Operation &nbsp&nbsp&nbsp     |       ops/s |
+| Operation |       ops/s |
 | :---------------------------- | ----------: |
 | [50, ...array]&nbsp&nbsp&nbsp |   12680.588 |
 | cons(50, list)&nbsp&nbsp&nbsp | 5485947.933 |
