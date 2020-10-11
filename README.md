@@ -38,23 +38,26 @@ TODO: Make "Why" shorter?
 ## Benchmarks
 
 ### Mutable operations vs cons
-| Opeation | ops/s |
-| :----------------- | -----------:|
-| array.unshift(50) | 69263.438   |
-| array.push(50)    | 9609332.222 |
-| cons(50, list)    | 8627588.293 |
+
+| Opeation &nbsp&nbsp&nbsp          |       ops/s |
+| :-------------------------------- | ----------: |
+| array.unshift(50) &nbsp&nbsp&nbsp |   99953.939 |
+| array.push(50) &nbsp&nbsp&nbsp    |   70675.276 |
+| cons(50, list) &nbsp&nbsp&nbsp    | 5822999.798 |
 
 ### Immutable operation vs cons
-| Operation | ops/s |
-| :----------------- | -----------:|
-| [50, ...array]    | 3.085       |
-| cons(50, list)    | 8627588.293 |
 
-### Array.prototype.map vs map
-| Operation | ops/s |
-| :----------------- | -----------:|
-| array.map(x => x * 2) | 0.691   |
-| map(list, x => x * 2) | 39.666  |
+| Operation &nbsp&nbsp&nbsp     |       ops/s |
+| :---------------------------- | ----------: |
+| [50, ...array]&nbsp&nbsp&nbsp |   12680.588 |
+| cons(50, list)&nbsp&nbsp&nbsp | 5485947.933 |
+
+### _Array.prototype_.map vs map
+
+| Operation                             |    ops/s |
+| :------------------------------------ | -------: |
+| array.map(x => x \* 2)&nbsp&nbsp&nbsp | 4389.837 |
+| map(list, x => x \* 2)&nbsp&nbsp&nbsp |  662.805 |
 
 ---
 _quick reminders_
