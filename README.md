@@ -41,23 +41,23 @@ TODO: Make "Why" shorter?
 
 | Opeation |       ops/s |
 | :-------------------------------- | ----------: |
-| array.unshift(50) &nbsp&nbsp&nbsp |   99953.939 |
-| array.push(50) &nbsp&nbsp&nbsp    |   70675.276 |
-| cons(50, list) &nbsp&nbsp&nbsp    | 5822999.798 |
+| array.unshift(50) |   99953.939 |
+| array.push(50)     |   70675.276 |
+| cons(50, list)     | 5822999.798 |
 
 ### Immutable operation vs cons
 
 | Operation |       ops/s |
 | :---------------------------- | ----------: |
-| [50, ...array]&nbsp&nbsp&nbsp |   12680.588 |
-| cons(50, list)&nbsp&nbsp&nbsp | 5485947.933 |
+| [50, ...array] |   12680.588 |
+| cons(50, list) | 5485947.933 |
 
 ### _Array.prototype_.map vs map
 
 | Operation                             |    ops/s |
 | :------------------------------------ | -------: |
-| array.map(x => x \* 2)&nbsp&nbsp&nbsp | 4389.837 |
-| map(list, x => x \* 2)&nbsp&nbsp&nbsp |  662.805 |
+| array.map(x => x \* 2) | 4389.837 |
+| map(list, x => x \* 2) |  662.805 |
 
 ---
 _quick reminders_
